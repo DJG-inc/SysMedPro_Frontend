@@ -1,6 +1,6 @@
-# SysMedPro_Backend
+# SysMedPro_Frontend
 
-# Hospital Management Backend
+# Hospital Management Frontend
 
 Este es el repositorio del backend de la herramienta prototipo para administrar y apoyar la gestión hospitalaria en Santiago de Cali. Este backend se encarga de proporcionar servicios para gestionar citas médicas, historias clínicas de pacientes y generar reportes médicos.
 
