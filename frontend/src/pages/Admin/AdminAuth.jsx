@@ -1,12 +1,22 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./AdminAuth.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 function AdminAuth() {
   const navigate = useNavigate();
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
+  const nameRef = useRef(null);
+  const emailRegisterRef = useRef(null);
+  const passwordRegisterRef = useRef(null);
+
+  const [isLoginForm, setIsLoginForm] = useState(true);
+
+  const handleToggleForm = () => {
+    setIsLoginForm(!isLoginForm);
+  };
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -16,67 +26,121 @@ function AdminAuth() {
       password: passwordRef.current.value,
     };
 
-    console.log(data);
-
     try {
-        console.log(data);
-       const response = await axios.post("http://localhost:3000/api/v1/admin/login", data)
+      const response = await axios.post(
+        "http://localhost:3000/api/v1/admin/login",
+        data
+      );
+
+      Swal.fire({
+        icon: "success",
+        title: "Bienvenido",
+        text: "Has iniciado sesión correctamente",
+      });
+
 
       if (response.status === 200) {
         localStorage.setItem("token", response.data.token);
-        navigate("/patients");
+        navigate("/create-doctor/");
       }
+
+
     } catch (err) {
       console.log(err);
     }
   };
 
+  const handleRegister = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/api/v1/admin/register",
+        {
+          email: emailRegisterRef.current.value,
+          username: nameRef.current.value,
+          password: passwordRegisterRef.current.value,
+        }
+      );
+
+      Swal.fire({
+        icon: "success",
+        title: "Bienvenido",
+        text: "Te has registrado correctamente",
+      });
+
+    } catch (err) {
+      console.log(err.response.data);
+      console.log(err.response.status);
+    }
+  };
+
   return (
-    <div className="body">
-      <div className="container-auth">
-        <div className="forms">
-          <div className="form login">
-            <span className="title">Iniciar Sesion</span>
-            <form id="form-login" onSubmit={handleLogin}>
-              <div className="input-field">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  required
-                  ref={emailRef}
-                />
-                <i className="uil uil-envelope icon"></i>
-              </div>
-              <div className="input-field">
-                <input
-                  type="password"
-                  className="password"
-                  placeholder="Enter your password"
-                  ref={passwordRef}
-                  required
-                />
-                <i className="uil uil-lock icon"></i>
-                <i className="uil uil-eye-slash showHidePw"></i>
-              </div>
-              <div className="checkbox-text">
-                <div className="checkbox-content">
-                  <input type="checkbox" id="logCheck" />
-                  <label htmlFor="logCheck" className="text">
-                    Remember me
-                  </label>
+    <>
+      <div className="body">
+        <div className="container-auth">
+          <div className="forms">
+            <div className={`form ${isLoginForm ? "login" : "register"}`}>
+              <span className="title">
+                {isLoginForm ? "Iniciar Sesión" : "Registrarse"}
+              </span>
+              <form
+                id={isLoginForm ? "form-login" : "form-register"}
+                onSubmit={isLoginForm ? handleLogin : handleRegister}
+              >
+                {!isLoginForm && (
+                  <div className="input-field">
+                    <i className="fas fa-user"></i>
+                    <input
+                      type="text"
+                      placeholder="Nombre"
+                      ref={nameRef}
+                      required
+                    />
+                  </div>
+                )}
+                <div className="input-field">
+                  <i className="fas fa-envelope"></i>
+                  <input
+                    type="email"
+                    placeholder="E-mail"
+                    ref={isLoginForm ? emailRef : emailRegisterRef}
+                    required
+                  />
                 </div>
-                <a href="./forgotPassDoctor&Admin.html" className="text">
-                  Forgot password?
-                </a>
+                <div className="input-field">
+                  <i className="fas fa-lock"></i>
+                  <input
+                    type="password"
+                    placeholder="Contraseña"
+                    ref={isLoginForm ? passwordRef : passwordRegisterRef}
+                    required
+                  />
+                </div>
+                {!isLoginForm && (
+                  <div className="checkbox-text">
+                    {/* Puedes agregar elementos específicos para el formulario de registro aquí */}
+                  </div>
+                )}
+                <div className="input-field button">
+                  <input
+                    type="submit"
+                    value={isLoginForm ? "Iniciar sesión" : "Registrarme"}
+                  />
+                </div>
+              </form>
+              <div className="toggle-form">
+                <span onClick={handleToggleForm}>
+                  {isLoginForm
+                    ? "¿No tienes cuenta? Regístrate"
+                    : "¿Ya tienes cuenta? Iniciar Sesión"}
+                </span>
               </div>
-              <div className="input-field button">
-                <input type="submit" value="login" />
-              </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

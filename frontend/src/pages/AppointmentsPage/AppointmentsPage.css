@@ -1,0 +1,25 @@
+.appointments-page {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+.view-appointments {
+  flex-grow: 1;
+  padding-left: 10rem;
+  padding-top: 2rem;
+
+}
+
+.divider {
+  border-right: 2px solid #ccc;
+  height: 100%;
+  margin: 0 20px;
+}
+
+.create-appointment {
+  flex-basis: 300px;
+  padding-top: 10rem;
+}

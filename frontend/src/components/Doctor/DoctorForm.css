@@ -1,0 +1,50 @@
+/* DoctorForm.css */
+.doctor-form-container {
+  max-width: 600rem; /* Ajusta el ancho máximo según tu preferencia */
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.form-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Divide el formulario en dos columnas */
+  gap: 10px; /* Espacio entre las columnas */
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* DoctorForm.css */
+.input-field {
+  width: 100%;
+  padding: 12px; /* Ajusta el padding según tu preferencia */
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px; /* Ajusta el tamaño del texto según tu preferencia */
+}
+
+.create-doctor-btn {
+  background-color: #0f457f;
+  color: white;
+  padding: 12px; /* Ajusta el padding según tu preferencia */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.create-doctor-btn:hover {
+  background-color: #0c3c6e;
+}

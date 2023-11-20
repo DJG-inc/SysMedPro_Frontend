@@ -24,7 +24,7 @@ function Home() {
         <ul className={`main-nav ${isHovering ? "nav-visible" : ""}`}>
           Menu
           <li className="nav-li">
-            <a href="./index.html">Home</a>
+            <a onClick={() => navigate("/")}>Home</a>
           </li>
           <li className="nav-li">
             <a onClick={() => navigate("/about")} >About</a>

@@ -1,62 +1,30 @@
 import React, { useState } from "react";
-import Swal from "sweetalert2";
 import "./Auth.css";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { useAuthPatient } from "../../context/AuthPatientContext";
 
 const Auth = () => {
   const [isLoginForm, setIsLoginForm] = useState(true);
   const navigate = useNavigate();
 
-  const registerPatient = async (e) => {
+  const { registerPatient, loginPatient } = useAuthPatient();
+
+  const handleRegister = async (e) => {
     e.preventDefault();
     const email = e.target["email-register"].value;
     const username = e.target["name-register"].value;
     const password = e.target["pass-register"].value;
-    const data = { username, email, password };
 
-    try {
-      console.log(data);
-      axios.post("http://localhost:3000/api/v1/patients/register", data);
-    } catch (err) {
-      console.error(err);
-    }
+    await registerPatient(email, username, password);
   };
 
-  const loginPatient = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     const email = e.target["email-login"].value;
     const password = e.target["pass-login"].value;
     const data = { email, password };
 
-    try {
-      const response = await axios.post("http://localhost:3000/api/v1/patients/login", data);
-      localStorage.setItem("token", response.data.token);
-      if (response.status === 200) {
-        Swal.fire({
-          icon: "success",
-          title: "Bienvenido",
-          text: "Has iniciado sesión correctamente",
-        });
-        navigate("/patients");
-      }
-
-      else {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Usuario o contraseña incorrectos",
-        });
-      }
-      
-    } catch (err) {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Usuario o contraseña incorrectos",
-      });
-      console.error(err);
-    }
+    await loginPatient(email, password);
   };
 
   const toggleForm = () => {
@@ -67,11 +35,7 @@ const Auth = () => {
     <div className={`container ${isLoginForm ? "" : "sign-up-mode"}`}>
       <div className="forms-container">
         <div className="signin-signup">
-          <form
-            id="form-login"
-            className="sign-in-form"
-            onSubmit={loginPatient}
-          >
+          <form id="form-login" className="sign-in-form" onSubmit={handleLogin}>
             <h2 className="title">Iniciar Sesion</h2>
             <p className="social-text">Ingresa para acceder a la plataforma</p>
             <div className="input-field">
@@ -100,7 +64,7 @@ const Auth = () => {
           <form
             id="form-register"
             className="sign-up-form"
-            onSubmit={registerPatient}
+            onSubmit={handleRegister}
           >
             <h2 className="title">Registrate</h2>
             <p className="social-text">Registrate para usar la plataforma</p>

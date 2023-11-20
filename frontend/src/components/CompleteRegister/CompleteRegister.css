@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap");
+
+.complete-register {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Utiliza el 100% de la altura de la ventana */
+}
+.complete-register-container {
+  font-family: "Goldman";
+  padding: 2rem;
+  width: auto;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra los elementos verticalmente */
+  gap: 20px;
+}
+
+.input-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Ajusta la anchura y el redondeo de los inputs */
+.complete-register-container input {
+  width: 100%; /* Utiliza el 100% del ancho disponible */
+  max-width: 400px; /* Limita el ancho máximo de los inputs */
+  padding: 10px; /* Agrega un relleno para mejorar el espacio interno */
+  border-radius: 10px; /* Añade bordes redondeados */
+  border: 1px solid #ccc; /* Agrega un borde para mejorar la apariencia */
+}
+
+h2 {
+  font-family: "Goldman";
+  font-size: 1.5rem;
+  color: black;
+  text-align: center;
+}
+
+/* Ajusta el estilo del botón */
+.button-complete-register {
+  height: 2rem;
+  width: 5rem;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Añade estilos al botón al pasar el ratón sobre él */
+button:hover {
+  background-color: #606360;
+}

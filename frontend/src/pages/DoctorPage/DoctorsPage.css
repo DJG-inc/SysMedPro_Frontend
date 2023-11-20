@@ -1,0 +1,26 @@
+.doctors-page {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+.view-doctors {
+  flex-grow: 1;
+  padding-left: 10rem;
+  padding-top: 2rem;
+}
+
+.divider {
+  border-right: 2px solid #ccc;
+  height: 100%;
+  margin: 0 20px;
+}
+
+.create-doctor {
+  /* colocarlo mas abajo */
+  padding-top: 2rem;
+  flex-basis: 600px;
+
+}
