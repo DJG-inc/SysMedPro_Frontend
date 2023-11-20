@@ -87,8 +87,8 @@ const DocAppointments = ({ appointment, onAppointmentDeleted, onAppointmentConfi
 
   return (
     <div className="view-appointment-container">
-      <h2 className="appointment-date">{appointment.date}</h2>
-      <p className="appointment-reason">{appointment.reasonForVisit}</p>
+      <h2 className="appointment-date">{appointment.reasonForVisit}</h2>
+      <p className="appointment-reason">Date: {appointment.date}</p>
       <p className="doctor-name">Doctor: {appointment.doctor_id}</p>
       <p className="status">Status: {appointment.status}</p>
       <div className="button-container">
