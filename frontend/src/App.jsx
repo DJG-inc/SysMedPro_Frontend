@@ -12,6 +12,7 @@ import { AuthProvider } from "./context/AuthPatientContext";
 import DoctorsPage from "./pages/DoctorPage/DoctorsPage";
 import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
 import DocAppointmentsPage from "./pages/DocAppointmentsPage/DocAppointmentsPage";
+import MedHistory from "./pages/MedHistory/MedHistory";
 
 function App() {
   return (
@@ -53,6 +54,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <DocAppointmentsPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/med-history/:id"
+            element={
+              <ProtectedRoute>
+                <MedHistory />
               </ProtectedRoute>
             }
           />

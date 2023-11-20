@@ -1,0 +1,179 @@
+.back-button {
+  background-color: #001f3f; /* Navy blue */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 20px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.med-history-container {
+  background-color: white;
+  color: #001f3f; /* Navy blue */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 31, 63, 0.2);
+  min-width: 100vw;
+  min-height: 100vh;
+  margin: 20px auto;
+}
+
+.patient-data-section {
+  background-color: #f8f9fa; /* Slightly grey background for the section */
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 31, 63, 0.1);
+}
+
+.patient-data-section h2 {
+  color: #001f3f;
+  border-bottom: 2px solid #001f3f;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+.patient-data {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.patient-data-field {
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 31, 63, 0.2);
+}
+
+.patient-data-label {
+  font-weight: 600;
+  color: #001f3f;
+}
+
+.patient-data-value {
+  display: block;
+  margin-top: 5px;
+  color: #4b4f56; /* Dark grey for contrast */
+}
+
+.report-button {
+  background-color: #001f3f; /* Navy blue */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.report-button:hover {
+  background-color: #000c17; /* Darker navy blue on hover */
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 31, 63, 0.2);
+  z-index: 1000;
+  min-width: 70vw;
+  min-height: 50vh;
+}
+
+.modal-content {
+  margin-top: 15px;
+}
+
+.close-button {
+  float: right;
+  cursor: pointer;
+  font-size: 1.5em;
+  color: #001f3f;
+}
+
+.textarea-field {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  resize: vertical; /* Allows the user to resize the textarea vertically */
+}
+
+.submit-button {
+  background-color: #001f3f; /* Navy blue */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #000c17; /* Darker navy blue on hover */
+}
+
+.reports {
+  background-color: #f8f9fa; /* Light grey background for the section */
+  padding: 15px;
+  border-radius: 5px;
+  margin: 20px auto;
+  box-shadow: 0 2px 4px rgba(0, 31, 63, 0.1);
+}
+
+.reports h2 {
+  color: #001f3f; /* Navy blue */
+  border-bottom: 2px solid #001f3f;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+.report {
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 31, 63, 0.2);
+  margin-bottom: 10px; /* Space between reports */
+}
+
+.report-field {
+  margin-bottom: 5px; /* Space between report fields */
+}
+
+.report-label {
+  font-weight: bold;
+  color: #001f3f; /* Navy blue */
+  display: block; /* Optional: Change to inline or inline-block if you prefer label and value on the same line */
+}
+
+.report-value {
+  margin-left: 5px; /* Space between label and value */
+  color: #4b4f56; /* Dark grey for contrast */
+  white-space: pre-wrap; /* Ensures that line breaks and spaces in the report details are preserved */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .patient-data {
+    grid-template-columns: 1fr; /* Stack the fields vertically on small screens */
+  }
+  .reports {
+    padding: 10px;
+  }
+  .report {
+    padding: 8px;
+  }
+}

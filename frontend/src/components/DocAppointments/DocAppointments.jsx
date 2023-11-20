@@ -2,8 +2,10 @@ import React from "react";
 import axios from "axios";
 import "./DocAppointments.css";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const DocAppointments = ({ appointment, onAppointmentDeleted, onAppointmentConfirmed, onAppointmentCanceled }) => {
+  const navigate = useNavigate();
 
   const handleDelete = async () => {
     const confirm = await Swal.fire({
@@ -58,6 +60,22 @@ const DocAppointments = ({ appointment, onAppointmentDeleted, onAppointmentConfi
     }
   }
 
+  const handleViewMedHistory = async () => {
+    const confirm = await Swal.fire({
+      title: "Are you sure?",
+      text: "You are moving to the Medical History Page",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+    });
+
+    if (confirm.isConfirmed) {
+      navigate("/med-history/" + appointment.patient_id);
+    }
+  }
+
+
   const handleConfirm = async () => {
     const confirm = await Swal.fire({
       title: "You're sure?",
@@ -101,6 +119,9 @@ const DocAppointments = ({ appointment, onAppointmentDeleted, onAppointmentConfi
         <button className="confirm-btn" onClick={handleConfirm}>
           Confirm
         </button>
+        <button className="view-btn" onClick={handleViewMedHistory}>
+          Med History
+          </button>
       </div>
     </div>
   );
