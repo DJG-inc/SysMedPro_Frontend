@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import "./DoctorForm.css";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { TailSpin } from "react-loader-spinner";
+
 const DoctorForm = ({ onDoctorCreated }) => {
   const [name, setName] = useState("");
   const [lastname, setLastname] = useState("");
@@ -12,9 +14,11 @@ const DoctorForm = ({ onDoctorCreated }) => {
   const [speciality, setSpeciality] = useState("");
   const [telefono, setTelefono] = useState("");
   const [officeRoom, setOfficeRoom] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleCreateDoctor = async () => {
     try {
+      setIsLoading(true);
       const data = {
         first_name: name,
         last_name: lastname,
@@ -52,6 +56,7 @@ const DoctorForm = ({ onDoctorCreated }) => {
       console.error(err.response);
       console.error(err.response.data);
     }
+    setIsLoading(false);
   };
 
   return (
@@ -101,7 +106,7 @@ const DoctorForm = ({ onDoctorCreated }) => {
         <div className="form-group">
           <label htmlFor="password">Password:</label>
           <input
-            type="text"
+            type="password"
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -139,7 +144,11 @@ const DoctorForm = ({ onDoctorCreated }) => {
           />
         </div>
         <button className="create-doctor-btn" onClick={handleCreateDoctor}>
-          Create Doctor
+          {isLoading ? (
+            <TailSpin color="#00BFFF" height={20} width={20} />
+          ) : (
+            "Create Doctor"
+          )}
         </button>
       </div>
     </div>

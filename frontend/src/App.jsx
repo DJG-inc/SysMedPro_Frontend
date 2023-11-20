@@ -11,6 +11,7 @@ import AppointmentsPage from "./pages/AppointmentsPage/AppointmentsPage";
 import { AuthProvider } from "./context/AuthPatientContext";
 import DoctorsPage from "./pages/DoctorPage/DoctorsPage";
 import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
+import DocAppointmentsPage from "./pages/DocAppointmentsPage/DocAppointmentsPage";
 
 function App() {
   return (
@@ -44,6 +45,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <DoctorsPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/doctor-appointments/"
+            element={
+              <ProtectedRoute>
+                <DocAppointmentsPage />
               </ProtectedRoute>
             }
           />

@@ -3,6 +3,8 @@ import "./AdminAuth.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
+import Switch from "react-switch";
+import { Icon } from "@iconify/react";
 
 function AdminAuth() {
   const navigate = useNavigate();
@@ -13,6 +15,11 @@ function AdminAuth() {
   const passwordRegisterRef = useRef(null);
 
   const [isLoginForm, setIsLoginForm] = useState(true);
+
+  const [userType, setUserType] = useState("admin");
+  const handleUserTypeChange = (checked) => {
+    setUserType(checked ? "doctors" : "admin");
+  };
 
   const handleToggleForm = () => {
     setIsLoginForm(!isLoginForm);
@@ -28,7 +35,7 @@ function AdminAuth() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/v1/admin/login",
+        `http://localhost:3000/api/v1/${userType}/login`,
         data
       );
 
@@ -38,13 +45,15 @@ function AdminAuth() {
         text: "Has iniciado sesión correctamente",
       });
 
-
       if (response.status === 200) {
         localStorage.setItem("token", response.data.token);
-        navigate("/create-doctor/");
+        sessionStorage.setItem(userType, JSON.stringify(response.data.doctor));
+        if (userType === "admin") {
+          navigate("/create-doctor");
+        } else if (userType === "doctors") {
+          navigate("/doctor-appointments");
+        }
       }
-
-
     } catch (err) {
       console.log(err);
     }
@@ -55,7 +64,7 @@ function AdminAuth() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/v1/admin/register",
+        `http://localhost:3000/api/v1/${userType}/register`,
         {
           email: emailRegisterRef.current.value,
           username: nameRef.current.value,
@@ -68,7 +77,6 @@ function AdminAuth() {
         title: "Bienvenido",
         text: "Te has registrado correctamente",
       });
-
     } catch (err) {
       console.log(err.response.data);
       console.log(err.response.status);
@@ -137,6 +145,24 @@ function AdminAuth() {
                 </span>
               </div>
             </div>
+          </div>
+          <div className="user-type-switch">
+            <label>
+              <span>
+                <Icon icon="eos-icons:admin" width={30} height={30} />
+              </span>
+              <Switch
+                onChange={handleUserTypeChange}
+                checked={userType === "doctors"}
+                offColor="#888"
+                onColor="#0f457f"
+                checkedIcon={false}
+                uncheckedIcon={false}
+              />
+              <span>
+                <Icon icon="vaadin:doctor" width="30" height="30" />
+              </span>
+            </label>
           </div>
         </div>
       </div>

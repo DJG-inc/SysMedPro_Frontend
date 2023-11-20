@@ -1,18 +1,31 @@
 import React from "react";
 import axios from "axios";
 import "./ViewAppointment.css";
+import Swal from "sweetalert2";
 
 const ViewAppointment = ({ appointment, onAppointmentDeleted }) => {
   const handleDelete = async () => {
-    try {
-      await axios.delete(`http://localhost:3000/api/v1/appointments/${appointment.id}`);
-      
-      // Llamar a la función proporcionada desde AppointmentsPage
-      if (onAppointmentDeleted) {
-        onAppointmentDeleted(appointment.id);
+    const confirm = await Swal.fire({
+      title: "¿Estás seguro?",
+      text: "No podrás revertir esta acción",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+    });
+    if (confirm.isConfirmed) {
+      try {
+        await axios.delete(
+          `http://localhost:3000/api/v1/appointments/${appointment.id}`
+        );
+
+        // Llamar a la función proporcionada desde AppointmentsPage
+        if (onAppointmentDeleted) {
+          onAppointmentDeleted(appointment.id);
+        }
+      } catch (err) {
+        console.error(err);
       }
-    } catch (err) {
-      console.error(err);
     }
   };
 
