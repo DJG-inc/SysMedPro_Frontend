@@ -7,7 +7,7 @@ function PatientsList() {
   useEffect(() => {
     async function fetchPatients() {
       try {
-        const response = await axios.get("http://localhost:3000/api/v1/patients/all", {
+        const response = await axios.get("https://sysmedpro-backend.onrender.com/api/v1/patients/all", {
           headers: {
             Authorization: localStorage.getItem("token"),
           },

@@ -36,7 +36,7 @@ const AppointmentsPage = () => {
     console.log(user.id);
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/v1/appointments/patient/${user.id}`
+        `https://sysmedpro-backend.onrender.com/api/v1/appointments/patient/${user.id}`
       );
       setAppointments(response.data.appointments);
     } catch (err) {

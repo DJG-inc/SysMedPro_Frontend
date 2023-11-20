@@ -16,7 +16,7 @@ const DoctorsPage = () => {
     const fetchDoctors = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/api/v1/doctors/all",
+          "https://sysmedpro-backend.onrender.com/api/v1/doctors/all",
           {
             headers: {
               Authorization: localStorage.getItem("token"),

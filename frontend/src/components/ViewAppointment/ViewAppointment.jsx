@@ -16,7 +16,7 @@ const ViewAppointment = ({ appointment, onAppointmentDeleted }) => {
     if (confirm.isConfirmed) {
       try {
         await axios.delete(
-          `http://localhost:3000/api/v1/appointments/${appointment.id}`
+          `https://sysmedpro-backend.onrender.com/api/v1/appointments/${appointment.id}`
         );
 
         // Llamar a la función proporcionada desde AppointmentsPage

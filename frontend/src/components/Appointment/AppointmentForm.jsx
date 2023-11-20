@@ -17,7 +17,7 @@ const AppointmentForm = ({ user_id, onAppointmentCreated }) => {
       const data = { date, reasonForVisit, doctor_id };
       console.log(data);
       await axios.post(
-        `http://localhost:3000/api/v1/appointments/create/${user_id}`,
+        `https://sysmedpro-backend.onrender.com/api/v1/appointments/create/${user_id}`,
         data
       );
       // Después de la creación exitosa, llamar a la función proporcionada desde AppointmentsPage
@@ -31,7 +31,7 @@ const AppointmentForm = ({ user_id, onAppointmentCreated }) => {
 
   const getDoctors = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/api/v1/doctors/all", {
+      const response = await axios.get("https://sysmedpro-backend.onrender.com/api/v1/doctors/all", {
         headers: {
           Authorization: localStorage.getItem("token"),
         },

@@ -35,7 +35,7 @@ function AdminAuth() {
 
     try {
       const response = await axios.post(
-        `http://localhost:3000/api/v1/${userType}/login`,
+        `https://sysmedpro-backend.onrender.com/api/v1/${userType}/login`,
         data
       );
 
@@ -64,7 +64,7 @@ function AdminAuth() {
 
     try {
       const response = await axios.post(
-        `http://localhost:3000/api/v1/${userType}/register`,
+        `https://sysmedpro-backend.onrender.com/api/v1/${userType}/register`,
         {
           email: emailRegisterRef.current.value,
           username: nameRef.current.value,

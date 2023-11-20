@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
 
   const registerPatient = async (email, username, password) => {
     try {
-      axios.post("http://localhost:3000/api/v1/patients/register", {
+      axios.post("https://sysmedpro-backend.onrender.com/api/v1/patients/register", {
         email,
         username,
         password,
@@ -28,7 +28,7 @@ export const AuthProvider = ({ children }) => {
   const loginPatient = async (email, password) => {
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/v1/patients/login",
+        "https://sysmedpro-backend.onrender.com/api/v1/patients/login",
         {
           email,
           password,
@@ -83,7 +83,7 @@ export const AuthProvider = ({ children }) => {
       const id = window.location.pathname.split("/")[2];
 
       const response = await axios.post(
-        `http://localhost:3000/api/v1/patients/confirm/${id}`,
+        `https://sysmedpro-backend.onrender.com/api/v1/patients/confirm/${id}`,
         {
           first_name,
           last_name,

@@ -17,7 +17,7 @@ const DocAppointments = ({ appointment, onAppointmentDeleted, onAppointmentConfi
     if (confirm.isConfirmed) {
       try {
         await axios.delete(
-          `http://localhost:3000/api/v1/appointments/${appointment.id}`
+          `https://sysmedpro-backend.onrender.com/api/v1/appointments/${appointment.id}`
         );
 
         // Llamar a la función proporcionada desde AppointmentsPage
@@ -44,7 +44,7 @@ const DocAppointments = ({ appointment, onAppointmentDeleted, onAppointmentConfi
     if (confirm.isConfirmed) {
       try {
         await axios.put(
-          `http://localhost:3000/api/v1/appointments/cancelled/${appointment.id}`
+          `https://sysmedpro-backend.onrender.com/api/v1/appointments/cancelled/${appointment.id}`
         );
 
         if (onAppointmentCanceled) {
@@ -70,7 +70,7 @@ const DocAppointments = ({ appointment, onAppointmentDeleted, onAppointmentConfi
     if (confirm.isConfirmed) {
       try {
         await axios.put(
-          `http://localhost:3000/api/v1/appointments/confirmed/${appointment.id}`
+          `https://sysmedpro-backend.onrender.com/api/v1/appointments/confirmed/${appointment.id}`
         );
 
         if (onAppointmentConfirmed) {

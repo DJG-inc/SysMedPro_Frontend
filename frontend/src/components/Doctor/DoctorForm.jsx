@@ -31,7 +31,7 @@ const DoctorForm = ({ onDoctorCreated }) => {
       };
 
       const response = await axios.post(
-        "http://localhost:3000/api/v1/doctors/register",
+        "https://sysmedpro-backend.onrender.com/api/v1/doctors/register",
         data,
         {
           headers: {
