@@ -41,8 +41,8 @@ function AdminAuth() {
 
       Swal.fire({
         icon: "success",
-        title: "Bienvenido",
-        text: "Has iniciado sesión correctamente",
+        title: "Welcome",
+        text: "You have successfully logged in",
       });
 
       if (response.status === 200) {
@@ -74,8 +74,8 @@ function AdminAuth() {
 
       Swal.fire({
         icon: "success",
-        title: "Bienvenido",
-        text: "Te has registrado correctamente",
+        title: "Welcome",
+        text: "You have registered successfully",
       });
     } catch (err) {
       console.log(err.response.data);
@@ -90,7 +90,7 @@ function AdminAuth() {
           <div className="forms">
             <div className={`form ${isLoginForm ? "login" : "register"}`}>
               <span className="title">
-                {isLoginForm ? "Iniciar Sesión" : "Registrarse"}
+                {isLoginForm ? "Log in" : "Register"}
               </span>
               <form
                 id={isLoginForm ? "form-login" : "form-register"}
@@ -101,7 +101,7 @@ function AdminAuth() {
                     <i className="fas fa-user"></i>
                     <input
                       type="text"
-                      placeholder="Nombre"
+                      placeholder="Name"
                       ref={nameRef}
                       required
                     />
@@ -120,7 +120,7 @@ function AdminAuth() {
                   <i className="fas fa-lock"></i>
                   <input
                     type="password"
-                    placeholder="Contraseña"
+                    placeholder="Password"
                     ref={isLoginForm ? passwordRef : passwordRegisterRef}
                     required
                   />
@@ -133,15 +133,15 @@ function AdminAuth() {
                 <div className="input-field button">
                   <input
                     type="submit"
-                    value={isLoginForm ? "Iniciar sesión" : "Registrarme"}
+                    value={isLoginForm ? "Log In" : "Register"}
                   />
                 </div>
               </form>
               <div className="toggle-form">
                 <span onClick={handleToggleForm}>
                   {isLoginForm
-                    ? "¿No tienes cuenta? Regístrate"
-                    : "¿Ya tienes cuenta? Iniciar Sesión"}
+                    ? "You do not have an account? Register"
+                    : "Do you already have an account? Log in"}
                 </span>
               </div>
             </div>

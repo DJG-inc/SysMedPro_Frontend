@@ -5,8 +5,8 @@ const Login = () => {
     <>
       <div className="login-container">
         <form id="form-login" className="sign-in-form">
-          <h2 className="title">Iniciar Sesion</h2>
-          <p className="social-text">Ingresa para acceder a la plataforma</p>
+          <h2 className="title">Log in</h2>
+          <p className="social-text">Login to access the platform</p>
           <div className="input-field">
             <i className="fas fa-user"></i>
             <input
@@ -20,13 +20,13 @@ const Login = () => {
             <i className="fas fa-lock"></i>
             <input
               type="password"
-              placeholder="Contraseña"
+              placeholder="Password"
               id="pass-login"
               required
             />
           </div>
           <a href="./forgotPassPatient.html" className="social-text">
-            Olvidaste tu contraseña?
+          Did you forget your password?
           </a>
           <input type="submit" value="Ingresar" className="btn solid" />
         </form>

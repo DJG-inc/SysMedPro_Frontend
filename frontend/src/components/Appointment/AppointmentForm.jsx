@@ -46,7 +46,7 @@ const AppointmentForm = ({ user_id, onAppointmentCreated }) => {
     <div className="appointment-form-container">
       <h1 className="form-title">Take Appointment</h1>
       <div className="form-group">
-        <label htmlFor="date">Fecha de la cita:</label>
+        <label htmlFor="date">Appointment date:</label>
         <input
           type="date"
           id="date"
@@ -55,7 +55,7 @@ const AppointmentForm = ({ user_id, onAppointmentCreated }) => {
         />
       </div>
       <div className="form-group">
-        <label htmlFor="reasonForVisit">Razón de la cita médica:</label>
+        <label htmlFor="reasonForVisit">Reason for medical appointment:</label>
         <input
           type="text"
           id="reasonForVisit"
@@ -64,13 +64,13 @@ const AppointmentForm = ({ user_id, onAppointmentCreated }) => {
         />
       </div>
       <div className="form-group">
-        <label htmlFor="doctor_id">Seleccionar doctor:</label>
+        <label htmlFor="doctor_id">Select doctor:</label>
         <select
           id="doctor_id"
           value={doctor_id}
           onChange={(e) => setDoctor_id(e.target.value)}
         >
-          <option value="">Seleccionar doctor</option>
+          <option value="">Select doctor</option>
           {doctors.map((doctor) => (
             <option key={doctor.id} value={doctor.id}>
               {doctor.first_name} {doctor.last_name}

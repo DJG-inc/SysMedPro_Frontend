@@ -42,7 +42,7 @@ const DoctorForm = ({ onDoctorCreated }) => {
 
       Swal.fire({
         icon: "success",
-        title: "Doctor creado exitosamente",
+        title: "Doctor created successfully",
         showConfirmButton: false,
         timer: 1500,
       });
@@ -64,7 +64,7 @@ const DoctorForm = ({ onDoctorCreated }) => {
       <h1 className="form-title">Create Doctor</h1>
       <div className="form-content">
         <div className="form-group">
-          <label htmlFor="name">Nombre:</label>
+          <label htmlFor="name">Name:</label>
           <input
             type="text"
             id="name"
@@ -74,7 +74,7 @@ const DoctorForm = ({ onDoctorCreated }) => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="lastname">Apellido:</label>
+          <label htmlFor="lastname">LastName: </label>
           <input
             type="text"
             id="lastname"
@@ -124,7 +124,7 @@ const DoctorForm = ({ onDoctorCreated }) => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="telefono">Telefono:</label>
+          <label htmlFor="telefono">Phone:</label>
           <input
             type="text"
             id="telefono"

@@ -43,7 +43,7 @@ function Home() {
             <span style={{ color: "#0f457f" }}>PATIENT</span> HUB!
           </h1>
           <h4 className="prod-head-sub">
-            "Simplifica la administración de usuarios en tu hospital y mejora la atención médica"
+            "Simplify user care in your hospital and improve medical care"
           </h4>
         </div>
         <div className="prod-right">

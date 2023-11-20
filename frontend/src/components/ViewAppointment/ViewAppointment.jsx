@@ -6,8 +6,8 @@ import Swal from "sweetalert2";
 const ViewAppointment = ({ appointment, onAppointmentDeleted }) => {
   const handleDelete = async () => {
     const confirm = await Swal.fire({
-      title: "¿Estás seguro?",
-      text: "No podrás revertir esta acción",
+      title: "You're sure?",
+      text: "You will not be able to reverse this action",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",

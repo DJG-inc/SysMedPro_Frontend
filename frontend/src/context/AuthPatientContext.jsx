@@ -39,8 +39,8 @@ export const AuthProvider = ({ children }) => {
       if (response.status === 200) {
         Swal.fire({
           icon: "success",
-          title: "Bienvenido",
-          text: "Has iniciado sesión correctamente",
+          title: "Welcome",
+          text: "You have successfully logged in",
         });
         if (response.data.patient.status === "PENDING") {
           navigate("/complete-register/" + response.data.patient.id);
@@ -51,14 +51,14 @@ export const AuthProvider = ({ children }) => {
         Swal.fire({
           icon: "error",
           title: "Oops...",
-          text: "Usuario o contraseña incorrectos",
+          text: "User or password incorrect",
         });
       }
     } catch (err) {
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: "Usuario o contraseña incorrectos",
+        text: "User or password incorrect",
       });
       console.error(err);
     }
@@ -112,7 +112,7 @@ export const AuthProvider = ({ children }) => {
       })
         .fire({
           icon: "success",
-          title: "Usuario completado su registro con éxito",
+          title: "User registered successfully",
         })
         .then(() => {
           navigate("/");

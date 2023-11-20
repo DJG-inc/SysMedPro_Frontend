@@ -39,7 +39,7 @@ export const CompleteRegister = () => {
         },
       }).fire({
         icon: "error",
-        title: "Todos los campos son obligatorios",
+        title: "All fields are required",
       });
       return;
     }
@@ -58,7 +58,7 @@ export const CompleteRegister = () => {
         },
       }).fire({
         icon: "error",
-        title: "El telefono debe ser numerico",
+        title: "The phone must be numeric",
       });
       return;
     }
@@ -77,7 +77,7 @@ export const CompleteRegister = () => {
         },
       }).fire({
         icon: "error",
-        title: "El telefono debe tener 10 digitos",
+        title: "The phone number must have 10 digits",
       });
       return;
     }
@@ -103,7 +103,7 @@ export const CompleteRegister = () => {
         },
       }).fire({
         icon: "error",
-        title: "La fecha de nacimiento debe ser menor a la fecha actual",
+        title: "The date of birth must be less than the current date",
       });
       return;
     }
@@ -126,7 +126,7 @@ export const CompleteRegister = () => {
         },
       }).fire({
         icon: "error",
-        title: "Debes ser mayor de 18 años",
+        title: "You must be over 18 years old",
       });
       return;
     }
@@ -146,7 +146,7 @@ export const CompleteRegister = () => {
         },
       }).fire({
         icon: "error",
-        title: "El nombre y apellido no deben contener numeros",
+        title: "The first and last name must not contain a numbers",
       });
       return;
     }
@@ -166,7 +166,7 @@ export const CompleteRegister = () => {
         },
       }).fire({
         icon: "error",
-        title: "El nombre y apellido no deben contener caracteres especiales",
+        title: "The first and last name must not contain special characters",
       });
       return;
     }
@@ -186,7 +186,7 @@ export const CompleteRegister = () => {
         },
       }).fire({
         icon: "error",
-        title: "La direccion no debe contener caracteres especiales",
+        title: "The address must not contain special characters",
       });
       return;
     }

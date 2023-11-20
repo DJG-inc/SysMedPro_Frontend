@@ -7,8 +7,8 @@ const DocAppointments = ({ appointment, onAppointmentDeleted, onAppointmentConfi
 
   const handleDelete = async () => {
     const confirm = await Swal.fire({
-      title: "¿Estás seguro?",
-      text: "No podrás revertir esta acción",
+      title: "You're sure?",
+      text: "You will not be able to reverse this action",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -34,8 +34,8 @@ const DocAppointments = ({ appointment, onAppointmentDeleted, onAppointmentConfi
 
   const handleCancel = async () => {
     const confirm = await Swal.fire({
-      title: "¿Estás seguro?",
-      text: "No podrás revertir esta acción",
+      title: "You're sure?",
+      text: "You will not be able to reverse this action",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -60,8 +60,8 @@ const DocAppointments = ({ appointment, onAppointmentDeleted, onAppointmentConfi
 
   const handleConfirm = async () => {
     const confirm = await Swal.fire({
-      title: "¿Estás seguro?",
-      text: "No podrás revertir esta acción",
+      title: "You're sure?",
+      text: "You will not be able to reverse this action",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",

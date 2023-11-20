@@ -36,8 +36,8 @@ const Auth = () => {
       <div className="forms-container">
         <div className="signin-signup">
           <form id="form-login" className="sign-in-form" onSubmit={handleLogin}>
-            <h2 className="title">Iniciar Sesion</h2>
-            <p className="social-text">Ingresa para acceder a la plataforma</p>
+            <h2 className="title">Log in</h2>
+            <p className="social-text">Login to access the platform</p>
             <div className="input-field">
               <i className="fas fa-user"></i>
               <input
@@ -51,28 +51,28 @@ const Auth = () => {
               <i className="fas fa-lock"></i>
               <input
                 type="password"
-                placeholder="Contraseña"
+                placeholder="Password"
                 id="pass-login"
                 required
               />
             </div>
             <a href="./forgotPassPatient.html" className="social-text">
-              Olvidaste tu contraseña?
+              Did you forget your password?
             </a>
-            <input type="submit" value="Ingresar" className="btn solid" />
+            <input type="submit" value="Enter" className="btn solid" />
           </form>
           <form
             id="form-register"
             className="sign-up-form"
             onSubmit={handleRegister}
           >
-            <h2 className="title">Registrate</h2>
-            <p className="social-text">Registrate para usar la plataforma</p>
+            <h2 className="title">Sign up</h2>
+            <p className="social-text">Register to use the platform</p>
             <div className="input-field">
               <i className="fas fa-user"></i>
               <input
                 type="text"
-                placeholder="Nombre"
+                placeholder="Name"
                 id="name-register"
                 required
               />
@@ -90,12 +90,12 @@ const Auth = () => {
               <i className="fas fa-lock"></i>
               <input
                 type="password"
-                placeholder="Contraseña"
+                placeholder="Password"
                 id="pass-register"
                 required
               />
             </div>
-            <input type="submit" className="btn" value="Registrame" />
+            <input type="submit" className="btn" value="Register" />
           </form>
         </div>
       </div>
@@ -103,17 +103,17 @@ const Auth = () => {
       <div className="panels-container">
         <div className="panel left-panel">
           <div className="content">
-            <h3>Nuevo por aca?</h3>
+            <h3>New here?</h3>
             <p>
-              Si no haces parte de nuestra plataforma te invitamos a unirte a la
-              comunidad.
+              If you are not part of our platform, we invite you to join the
+              community.
             </p>
             <button
               className="btn transparent"
               id="sign-up-btn"
               onClick={toggleForm}
             >
-              Registrate
+              Sign up
             </button>
           </div>
 
@@ -124,18 +124,18 @@ const Auth = () => {
           />
         </div>
         <a onClick={() => navigate("/admin")} className="panel-admin">
-          <i className="fas fa-user-md"></i>Panel Administrativo
+          <i className="fas fa-user-md"></i>Administrative Panel
         </a>
         <div className="panel right-panel">
           <div className="content">
-            <h3>Ya tienes una cuenta?</h3>
-            <p>Si ya tienes cuenta inicia sesión para acceder al sistema</p>
+            <h3>Do you already have an account?</h3>
+            <p>If you already have an account, log in to access the system</p>
             <button
               className="btn transparent"
               id="sign-in-btn"
               onClick={toggleForm}
             >
-              INGRESA
+              ENTER
             </button>
           </div>
           <img
